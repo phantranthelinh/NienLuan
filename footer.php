@@ -16,7 +16,7 @@
                 </div>
             </div>
             <hr>
-            <p class="Copyright">Copyright 2021 - By TheLinh</p>
+            <p class="Copyright">Copyright 2021 - By TheLinhx</p>
         </div>
     </div>
     <!-- ------------------- js for toggle menu-------------- -->

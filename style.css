@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
 }
 .logo{
     position: relative;
@@ -156,16 +156,22 @@ img{
   animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
+
 
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
 }
-
+.sale{
+    animation-name: sale;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    color :red;
+}
+@keyframes sale{
+    0% {color: black;}
+    25% {color: red;}
+}
 .row{
     display: flex;
     align-items: center;

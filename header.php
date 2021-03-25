@@ -9,7 +9,7 @@
                         <li><a href="index.php">TRANG CHỦ</a></li>
                         <li><a href="products.php">SẢN PHẨM</a></li>
                         <div class="dropdown">
-                            <li><a href="#" style="font-size: 20px; color: red;">SALE</a>
+                            <li><a href="#" class="sale">SALE</a>
                                 <div class="dropdown-content">
                                     <ul>
                                         <li><a href="#">10%</a></li>
@@ -28,6 +28,7 @@
                                         <li><a href="#">Vans</a></li>
                                         <li><a href="#">Addidas</a></li>
                                         <li><a href="#">Nike</a></li>
+                                        <li><a href="#">New Balance</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -70,7 +71,7 @@
         </div>
             <div class="row">
                 <div class="trend">
-                        <h4>Xu hướng tìm kiếm:</h4>
+                        <h4 class="sale">Xu hướng tìm kiếm:</h4>
                         <a href="">coverse</a>
                         <a href="">vans old school</a>
                         <a href="">coverse trắng cổ thấp</a>
