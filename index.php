@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <?php include 'header.php'; ?>
 
     <!-- ------------- featured categorries ---------------- -->
@@ -36,7 +35,7 @@
     </div>
     <!-- ------------- featured products ---------------- -->
     <div class="small-container">
-        <h2 class="title">Featured Products</h2>
+        <h2 class="title">SẢN PHẨM KHUYỄN MÃI</h2>
         <div class="row">
             <div class="col-4">
                 <a href="products_detal.php"><img src="images/product-1.jpg"></a>
@@ -87,7 +86,7 @@
                 <p>$50.00</p>
             </div>
         </div>
-        <h2 class="title">New Arrivals</h2>
+        <h2 class="title">SẢN PHẨM MỚI</h2>
         <div class="row">
             <div class="col-4">
                 <a href="products_detal.php"><img src="images/product-1.jpg"></a>
@@ -138,7 +137,58 @@
                 <p>$50.00</p>
             </div>
         </div>
-        <h2 class="title">Latest Products</h2>
+        <h2 class="title">SẢN PHẨM BÁN CHẠY NHẤT</h2>
+        <div class="row">
+            <div class="col-4">
+                <a href="products_detal.php"><img src="images/product-1.jpg"></a>
+                <a href="products_detal.php"><h4>Red Printed T-Shirt</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50.00</p>
+            </div>
+            <div class="col-4">
+                <img src="images/product-2.jpg">
+                <h4>Red Printed T-Shirt</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50.00</p>
+            </div>
+            <div class="col-4">
+                <img src="images/product-3.jpg">
+                <h4>Red Printed T-Shirt</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>$50.00</p>
+            </div>
+            <div class="col-4">
+                <img src="images/product-4.jpg">
+                <h4>Red Printed T-Shirt</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50.00</p>
+            </div>
+        </div>
+        <h2 class="title">SẢN PHẨM SẮP HẾT</h2>
         <div class="row">
             <div class="col-4">
                 <img src="images/product-5.jpg">
@@ -240,11 +290,9 @@
             </div>
         </div>
     </div>
-    
     <!-- brands -->
     <?php include 'brand.php'; ?>
     <!-- ------------footer----------- -->
     <?php include 'footer.php'; ?>
-    
 </body>
 </html>

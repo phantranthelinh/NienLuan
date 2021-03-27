@@ -3,15 +3,15 @@
             <div class="row">
                 <div class="footer-col-2">
                     <a href="index.php"><img src="images/logo-footer.png"></a>
-                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sneaker Accessible to the Many
+                    <p>Mục đích cuối cùng của chúng tôi là đem lại những đôi giày tốt nhất <br>với giá cả phù hợp nhất để giành cho các bạn
 </p>
                 </div>
                 <div class="footer-col-4">
                     <h3>Follow us</h3>
                     <ul>
-                        <li><a href="">Facebook</a></li>
-                        <li><a href="">Instagram</a></li>
-                        <li><a href="">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
                     </ul>
                 </div>
             </div>

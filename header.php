@@ -1,3 +1,4 @@
+
 <div class="header">
         <div class="container">
             <div class="navbar">
@@ -69,48 +70,50 @@
                 </div>
             </div>
         </div>
-            <div class="row">
-                <div class="trend">
-                        <h4 class="sale">Xu hướng tìm kiếm:</h4>
-                        <a href="">coverse</a>
-                        <a href="">vans old school</a>
-                        <a href="">coverse trắng cổ thấp</a>
+            <div>
+                <div class="row">
+                    <div class="trend">
+                            <h4 class="sale">Xu hướng tìm kiếm:</h4>
+                            <a href="">coverse</a>
+                            <a href="">vans old school</a>
+                            <a href="">coverse trắng cổ thấp</a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="search">
-                    <form>
-                        <input type="text" name="search" placeholder="Tìm kiếm ...">
-                    </form>
+                <div class="row">
+                    <div class="search">
+                        <form>
+                            <input type="text" name="search" placeholder="Tìm kiếm ...">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-var slideIndex = 1;
-showSlides(slideIndex);
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
 </script>

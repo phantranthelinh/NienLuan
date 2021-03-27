@@ -20,12 +20,10 @@ body{
     border-radius: 4px;
     outline: none;
     padding:20px;
+    border: 1px solid red;
   
 }
-.search input:focus{
-    background-color: #ddd;
 
-}
 .navbar{
     display: flex;
     align-items: center;
@@ -164,9 +162,9 @@ img{
 }
 .sale{
     animation-name: sale;
-    animation-duration: 3s;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
-    color :red;
+    color :black;
 }
 @keyframes sale{
     0% {color: black;}
@@ -644,4 +642,9 @@ form a{
     .cart-info p{
         display: none;
     }
+}
+.lv{
+    width: 30%;
+    margin-left: 200px;
+    height: 30%;
 }

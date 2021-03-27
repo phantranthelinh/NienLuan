@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -56,7 +58,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-2">
-                    <img src="images/image1.png" width="100%">
+                    <div class="lv">
+                        <img src="images/luotvan.gif">
+                    </div>
                 </div>
 
                 <div class="col-2">
@@ -67,17 +71,17 @@
                             <hr id="Indicator">
                         </div>
 
-                        <form id="LoginForm" action="login.php">
-                            <input type="text" placeholder="Username">
-                            <input type="password" placeholder="Password">
+                        <form id="LoginForm" action="login.php" method="POST">
+                            <input type="text" placeholder="Username" name="user">
+                            <input type="password" placeholder="Password" name="pass">
                             <button type="submit" class="btn">Login</button>
-                            <a href="#">Forgot password</a>
+                            <a href="forgot_pwd.php">Forgot password</a>
                         </form>
 
-                        <form id="RegForm" action="reg.php">
-                            <input type="text" placeholder="Username">
-                            <input type="email" placeholder="Email">
-                            <input type="password" placeholder="Password">
+                        <form id="RegForm" action="reg.php" method="POST">
+                            <input type="text" placeholder="Username" name="user">
+                            <input type="email" placeholder="Email" name="email">
+                            <input type="password" placeholder="Password" name="pass">
                             <button type="submit" class="btn">Register</button>
                         </form>
 
