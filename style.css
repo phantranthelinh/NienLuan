@@ -219,6 +219,11 @@ img{
 }
 .trend a{
     padding: 0px 10px 0px 10px;
+    transition: 0.7s ease;
+}
+.trend a:hover{
+    color: red;
+
 }
 .trend h4 {
     color: red;

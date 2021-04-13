@@ -14,11 +14,11 @@
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'header_small.php'; ?>
     <div class="small-container">
 
         <div class="row row-2">
-            <h2>All Products</h2>
+            <h2>Sale</h2>
             <select>
                 <option>Default Shop</option>
                 <option>Short by price</option>

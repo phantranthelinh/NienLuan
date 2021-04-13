@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản Phẩm - GreenStore</title>
+    <title>Sản Phẩm Theo Nhãn Hiệu - GreenStore</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -18,7 +18,7 @@
     <div class="small-container">
 
         <div class="row row-2">
-            <h2>All Products</h2>
+            <h2>Converse</h2>
             <select>
                 <option>Default Shop</option>
                 <option>Short by price</option>
@@ -187,7 +187,28 @@
             <span>&#8594;</span>
         </div>
     </div>
-    <?php include 'footer.php' ?>
+    <!-- ------------footer----------- -->
+<div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-2">
+                    <a href="index.php"><img src="images/logo-footer.png"></a>
+                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sneaker Accessible to the Many
+</p>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li><a href="">Facebook</a></li>
+                        <li><a href="">Instagram</a></li>
+                        <li><a href="">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="Copyright">Copyright 2021 - By TheLinh</p>
+        </div>
+    </div>
 
 </body>
 </html>
