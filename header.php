@@ -1,51 +1,49 @@
 
 <div class="header">
         <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <a href="index.php"><img src="images/logo.png" width="150px"></a>
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="index.php"><img src="images/logo.png" width="150px"></a>
+                    </div>
+                    <nav>
+                        <ul id="MenuItems">
+                            <li><a href="index.php">TRANG CHỦ</a></li>
+                            <li><a href="products.php">SẢN PHẨM</a></li>
+                            <div class="dropdown">
+                                <li><a href="sale.php" class="sale">SALE</a>
+                                    <div class="dropdown-content">
+                                        <ul>
+                                            <li><a href="#">10%</a></li>
+                                            <li><a href="#">15%</a></li>
+                                            <li><a href="#">30%</a></li>
+                                            <li><a href="#">50%</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </div>
+                            <div class="dropdown">
+                                <li><a href="#">NHÃN HIỆU</a>
+                                    <div class="dropdown-content">
+                                        <ul>
+                                            <li><a href="#">Converse</a></li>
+                                            <li><a href="#">Vans</a></li>
+                                            <li><a href="#">Addidas</a></li>
+                                            <li><a href="#">Nike</a></li>
+                                            <li><a href="#">New Balance</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </div>
+                                <li><a href="account.php">TÀI KHOẢN</a></li>
+                                </li>
+                        </ul>
+                    </nav>
+                    <div class="cart">
+                        <a href="cart.php"><img src="images/cart.png" width="30px" height="30px"></a>
+                    </div>
+                    <img src="images/menu.png" class="menu-icon" 
+                    onclick="menutoggle()">
                 </div>
-                <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.php">TRANG CHỦ</a></li>
-                        <li><a href="products.php">SẢN PHẨM</a></li>
-                        <div class="dropdown">
-                            <li><a href="#" class="sale">SALE</a>
-                                <div class="dropdown-content">
-                                    <ul>
-                                        <li><a href="#">10%</a></li>
-                                        <li><a href="#">15%</a></li>
-                                        <li><a href="#">30%</a></li>
-                                        <li><a href="#">50%</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="dropdown">
-                            <li><a href="#">NHÃN HIỆU</a>
-                                <div class="dropdown-content">
-                                    <ul>
-                                        <li><a href="#">Converse</a></li>
-                                        <li><a href="#">Vans</a></li>
-                                        <li><a href="#">Addidas</a></li>
-                                        <li><a href="#">Nike</a></li>
-                                        <li><a href="#">New Balance</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </div>
-                            <li><a href="account.php">TÀI KHOẢN</a></li>
-                            </li>
-                     
-                    </ul>
-
-                </nav>
-                <div class="cart">
-                    <a href="cart.php"><img src="images/cart.png" width="30px" height="30px"></a>
-                </div>
-                <img src="images/menu.png" class="menu-icon" 
-                onclick="menutoggle()">
-            </div>
             <div class="row">
                 <div class="slideshow-container">
                     <div class="mySlides fade">
@@ -115,5 +113,21 @@
     }
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
+
   }
+          var MenuItems = document.getElementById("MenuItems");
+        
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px";
+            }
+        else
+            {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
 </script>
+

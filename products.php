@@ -15,9 +15,6 @@
 
 <body>
     <?php include 'header.php'; ?>
-
-
-
     <div class="small-container">
 
         <div class="row row-2">
@@ -212,24 +209,7 @@
             <p class="Copyright">Copyright 2021 - By TheLinh</p>
         </div>
     </div>
-    <!-- ------------------- js for toggle menu-------------- -->
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
-        
-        MenuItems.style.maxHeight = "0px";
 
-        function menutoggle(){
-            if(MenuItems.style.maxHeight == "0px")
-            {
-                MenuItems.style.maxHeight = "200px";
-            }
-        else
-            {
-                MenuItems.style.maxHeight = "0px";
-            }
-        }
-
-    </script>
 </body>
 </html>
 </body>

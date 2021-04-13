@@ -6,6 +6,7 @@
 body{
     font-family: 'Roboto Slab', serif;
 }
+
 .logo{
     position: relative;
     top:10px;
@@ -23,15 +24,15 @@ body{
     border: 1px solid red;
   
 }
-
-.navbar{
+.navbar {
     display: flex;
     align-items: center;
-    padding:20px;
+    padding: 20px;
     justify-content: space-around;
+    width: 100%;
 }
 
-.cart{
+ .cart{
     margin-top: 9px;
 }
 nav{
