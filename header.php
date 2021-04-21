@@ -28,7 +28,7 @@
                                         <ul>
                                             <li><a href="brand_detail.php">Converse</a></li>
                                             <li><a href="brand_detail.php">Vans</a></li>
-                                            <li><a href="brand_detail.php">Addidas</a></li>
+                                            <li><a href="brand_detail.php">Adidas</a></li>
                                             <li><a href="brand_detail.php">Nike</a></li>
                                             <li><a href="brand_detail.php">New Balance</a></li>
                                         </ul>
