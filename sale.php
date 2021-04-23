@@ -18,7 +18,7 @@
     <div class="small-container">
 
         <div class="row row-2">
-            <h2>Sale</h2>
+            <h2>SALE</h2>
             <select>
                 <option>Default Shop</option>
                 <option>Short by price</option>

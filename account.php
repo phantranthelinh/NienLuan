@@ -1,3 +1,13 @@
+<?php 
+require_once 'Connect/connection.php';
+$query = "SELECT * from categories";
+$rs = $conn->query($query);
+$categories=array();
+while($row =$rs->fetch_assoc()){
+    $categories[]=$row;
+}
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,10 +39,10 @@
                             <li><a href="#">NHÃN HIỆU</a>
                                 <div class="dropdown-content">
                                     <ul>
-                                        <li><a href="#">Converse</a></li>
-                                        <li><a href="#">Vans</a></li>
-                                        <li><a href="#">Addidas</a></li>
-                                        <li><a href="#">Nike</a></li>
+                                        <?php foreach ($categories as $cate) {
+                                        ?>
+                                            <li><a href="brand_detail.php?id=<?=$cate['id']?>"><?=$cate['c_name']?></a></li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </li>

@@ -1,3 +1,18 @@
+<?php 
+require_once 'Connect/connection.php';
+$query = "SELECT * from categories";
+$rs = $conn->query($query);
+$categories=array();
+while($row =$rs->fetch_assoc()){
+    $categories[]=$row;
+}
+$query_slide = "SELECT * FROM slides";
+$rs_slide = $conn->query($query_slide);
+$slides = array();
+while($row= $rs_slide->fetch_assoc()){
+    $slides[]=$row;
+}
+?>
 
 <div class="header">
     <header>
@@ -14,10 +29,10 @@
                                 <li><a href="sale.php" class="sale">SALE</a>
                                     <div class="dropdown-content">
                                         <ul>
-                                            <li><a href="#">10%</a></li>
-                                            <li><a href="#">15%</a></li>
-                                            <li><a href="#">30%</a></li>
-                                            <li><a href="#">50%</a></li>
+                                            <li><a href="sale.php">10%</a></li>
+                                            <li><a href="sale.php">15%</a></li>
+                                            <li><a href="sale.php">30%</a></li>
+                                            <li><a href="sale.php">50%</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -26,11 +41,10 @@
                                 <li><a href="#">NHÃN HIỆU</a>
                                     <div class="dropdown-content">
                                         <ul>
-                                            <li><a href="brand_detail.php">Converse</a></li>
-                                            <li><a href="brand_detail.php">Vans</a></li>
-                                            <li><a href="brand_detail.php">Adidas</a></li>
-                                            <li><a href="brand_detail.php">Nike</a></li>
-                                            <li><a href="brand_detail.php">New Balance</a></li>
+                                            <?php foreach ($categories as $cate) {
+                                            ?>
+                                            <li><a href="brand_detail.php?id=<?=$cate['id']?>"><?=$cate['c_name']?></a></li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
                                 </li>
@@ -50,24 +64,22 @@
         <br><br><br><br><br><br>   
             <div class="row">
                 <div class="slideshow-container">
+                    <?php foreach ($slides as $slide) {
+                     ?>
                     <div class="mySlides fade">
                       <div class="numbertext">1 / 2</div>
-                      <img src="images/slideshow1.jpg" style="width:100%">
-                      <div class="text">Caption Text</div>
+                      <img src="<?=$slide['image']?>" style="width:1000px">
+                      <div class="text">HOT PRODUCT</div>
                     </div>
-
-                    <div class="mySlides fade">
-                      <div class="numbertext">2 / 2</div>
-                      <img src="images/slideshow2.jpg" style="width:100%">
-                      <div class="text">Caption Two</div>
-                    </div>
-
+                    <?php } ?>
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 <br>
                 <div style="text-align:center">
-                  <span class="dot" onclick="currentSlide(1)"></span> 
-                  <span class="dot" onclick="currentSlide(2)"></span> 
+                    <?php foreach ($slides as $slide) {
+                     ?>
+                  <span class="dot" onclick="currentSlide(<?=$slide['id']?>)"></span> 
+                    <?php } ?>
                 </div>
                 </div>
             </div>
