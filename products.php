@@ -1,3 +1,15 @@
+<?php 
+require_once 'Connect/connection.php';
+$query = "SELECT * From products
+LEFT JOIN images
+ON products.id = images.im_product_id ";
+$rs = $conn->query($query);
+$products=array();
+while($row=$rs->fetch_assoc()){
+    $products[]=$row;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,54 +42,20 @@
         </div>
 
         <div class="row">
+            <?php foreach ($products as $pro ) { ?>
             <div class="col-4">
-                <a href="products_detal.php"><img src="images/product-1.jpg"></a>
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
+                <a href="product_detail.php?id=<?=$pro['id']?>"><img src="<?=$pro['image']?>"></a>
+                <h4><?=$pro['pro_name']?></h4>
+ <!--                <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
+                </div> -->
+                <p style="text-align: center; color:red;"><?=$pro['pro_price']?></p>
             </div>
-            <div class="col-4">
-                <img src="images/product-2.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-3.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-4.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
+            <?php } ?>
         </div>
         <div class="row">
             <div class="col-4">
