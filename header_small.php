@@ -36,7 +36,7 @@ while($row =$rs->fetch_assoc()){
                                         <ul>
                                             <?php foreach ($categories as $cate) {
                                             ?>
-                                            <li><a href="brand_detail.php?id=<?=$cate['id']?>"><?=$cate['c_name']?></a></li>
+                                            <li><a href="brand_detail.php?id=<?=$cate['id']?>&name=<?=$cate['c_name']?>"><?=$cate['c_name']?></a></li>
                                             <?php } ?>
                                         </ul>
                                     </div>

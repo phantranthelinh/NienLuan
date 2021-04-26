@@ -15,7 +15,7 @@ while($row = $rs->fetch_assoc()){
                 <?php foreach ($suppliers as $sup) 
                 { ?>
                     <div class="col-5">
-                        <a href="brand_detail.php?id=<?=$sup['s_categories_id']?>"><img src="<?=$sup['s_logo']?>"></a>
+                        <a href="brand_detail.php?id=<?=$sup['s_categories_id']?>&name=<?=$sup['c_name']?>"><img src="<?=$sup['s_logo']?>"></a>
                     </div>
                 <?php } ?>
             </div>

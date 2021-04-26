@@ -51,7 +51,7 @@ while($row=$rs->fetch_assoc()){
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-o"></i>
                 </div> -->
-                <p style="text-align: center; color:red;"><?=$pro['pro_price']?></p>
+                <p style="text-align: right; color:red;"><?=$pro['pro_price']?></p>
             </div>
             <?php } ?>
         </div>

@@ -1,3 +1,10 @@
+<?php 
+require_once 'Connect/connection.php';
+
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
