@@ -2,20 +2,21 @@
 $id = $_GET['id'];
 require_once 'Connect/connection.php';
 $query = "SELECT * From products
-LEFT JOIN images
-ON products.id = images.im_product_id where products.id = '".$id."'";
+ where products.id = '".$id."'";
 $pro=$conn->query($query)->fetch_assoc();
 
-$query_size = "SELECT size.size From products
-LEFT JOIN images
-ON products.id = images.im_product_id
-LEFT JOIN size 
-ON images.im_product_id = size.size_products_id
-where products.id ='".$id."'";
+$query_size = "SELECT size.size From size
+where size.size_products_id  = '".$id."'";
 $sizes=array();
 $rs = $conn->query($query_size);
 while($row=$rs->fetch_assoc()){
     $sizes[]=$row;
+}
+$query_images = "SELECT image from images where im_product_id='".$id."' ";
+$images=array();
+$rs_im = $conn->query($query_images);
+while ($row=$rs_im->fetch_assoc()) {
+    $images[]=$row;
 }
 ?>
 
@@ -45,43 +46,38 @@ while($row=$rs->fetch_assoc()){
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                 <figure class="zoom" style="background:url('<?=$pro['image']?>')" onmousemove="zoom(event)" ontouchmove="zoom(event)">
-                        <img src="<?=$pro['image']?>" width="100%" class="small-img" id="productImg">
-                        </figure>
+                <figure class="zoom" style="background:url('<?=$pro['pro_view']?>')" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="<?=$pro['pro_view']?>" width="100%" class="small-img" id="productImg">
+                </figure>
                 
                 <div class="small-img-row">
+                    <?php foreach ($images as $im) {
+                     ?>
                     <div class="small-img-rol">
-                        <img src="<?=$pro['image']?>" width="100%" class="small-img">
+                        <img src="<?=$im['image']?>" width="100%" class="small-img">
                     </div>
-                    <div class="small-img-rol">
-                        <img src="<?=$pro['image']?>" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-rol">
-                        <img src="<?=$pro['image']?>" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-rol">
-                        <img src="<?=$pro['image']?>" width="100%" class="small-img">
-                    </div>
+                    <?php } ?>
                 </div>
 
             </div>
             <div class="col-3">
                 <p><a href="index.php">Home</a> / <?=$pro['pro_keyword']?></p>
                 <h1><?=$pro['pro_name']?></h1>
-                <h4><?=$pro['pro_price']?></h4>
+                <h4 style="color:red;"><?=$pro['pro_price']?></h4>
                 <select>
                     <option>Select Size</option>
                     <?php foreach ($sizes as $size ) { ?>
                         <option><?=$size['size']?></option>
                     <?php } ?>
-                    </section>
+                </select>
+                <p><?=$pro['pro_description']?></p>
                     <input type="number" value="1">
                     <a href="" class="btn">Add To Card</a>
+                    <br>
                     <h3>Product Detail
                         <i class="fa fa-indent"></i>
-                    </h3>
-                    <br>
-                    <p><?=$pro['pro_description']?></p>
+                    </h3>    
+                    <p><?=$pro['pro_content']?></p>
             </div>
         </div>
     </div>
