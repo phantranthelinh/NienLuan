@@ -42,18 +42,34 @@ header.sticky ul li a{
 header.sticky .dropdown-content{
     background-color: #000000;
 }
-
 .search {
-    width: 45%;
-    height: 60px;
-
+    display: flex;
+    width: 30%;
+    position: relative;
+    justify-content: center;
+    left:10%;
+    top: 14px;
+    flex-direction: column;
+}
+.search span{
+    position: absolute;
+    top: 15px;
+    left: 10px;
 }
 .search input{
+    width: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
     border-radius: 4px;
-    outline: none;
-    padding:20px;
-    border: 1px solid red;
-  
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition:  0.6s ease-in-out;
+}
+.search input:focus{
+    width: 100%;
 }
 .navbar {
     display: flex;

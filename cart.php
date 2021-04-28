@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,56 +23,32 @@
     <!-- -----------------cart item details------------------- -->
     <div class="small-container cart-page">
         <table>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="images/buy-1.jpg">
-                        <div>
-                            <p>Red Printed Tshirt</p>
-                            <small>Price: $50.00</small>
-                            <br>
-                            <a href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>$50.00</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="images/buy-2.jpg">
-                        <div>
-                            <p>Red Printed Tshirt</p>
-                            <small>Price: $75.00</small>
-                            <br>
-                            <a href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>$75.00</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="images/buy-3.jpg">
-                        <div>
-                            <p>Red Printed Tshirt</p>
-                            <small>Price: $50.00</small>
-                            <br>
-                            <a href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>$50.00</td>
-            </tr>
+            <?php if(isset($_SESSION['cart'])) : ?>
+                <?php foreach ($_SESSION['cart'] as $cart ) : ?>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="cart-info">
+                                <img src="<?=$cart['view']?>">
+                                <div>
+                                    <p><?=$cart['name']?></p>
+                                    <small><?=$cart['price']?></small>
+                                    <br>
+                                    <a href="detroy_cart.php?id=<?=$cart[$id]?>">Remove</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td><input type="number" value="<?=$cart['sl']?>"></td>
+                        <td><?=$cart['sl']*3000?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else :?>
+            <p>Không tồn tại giỏ hàng</p>
+            <?php endif; ?>
         </table>
 
         <div class="total-price">

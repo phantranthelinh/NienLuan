@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $id = $_GET['id'];
 require_once 'Connect/connection.php';
 $query = "SELECT * From products
@@ -34,6 +35,7 @@ while ($row=$rs_im->fetch_assoc()) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 
 <body>
@@ -42,7 +44,11 @@ while ($row=$rs_im->fetch_assoc()) {
     <br><br>
 
     <!-- ---------- single Products detail ----------- -->
-
+    <div>
+        <?php if(isset($_SESSION['msg'])): ?>
+            <p class="msg"><?=$_SESSION['msg']?></p>
+        <?php endif; unset($_SESSION['msg']) ?>
+    </div>
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
@@ -61,7 +67,7 @@ while ($row=$rs_im->fetch_assoc()) {
 
             </div>
             <div class="col-3">
-                <p><a href="index.php">Home</a> / <?=$pro['pro_keyword']?></p>
+                <p><a href="index.php">Home</a><?=$pro['pro_keyword']?></p>
                 <h1><?=$pro['pro_name']?></h1>
                 <h4 style="color:red;"><?=$pro['pro_price']?></h4>
                 <select>
@@ -72,7 +78,7 @@ while ($row=$rs_im->fetch_assoc()) {
                 </select>
                 <p><?=$pro['pro_description']?></p>
                     <input type="number" value="1">
-                    <a href="" class="btn">Add To Card</a>
+                    <a href="add_cart.php?id=<?=$pro['id']?>" class="btn">Add To Card</a>
                     <br>
                     <h3>Product Detail
                         <i class="fa fa-indent"></i>

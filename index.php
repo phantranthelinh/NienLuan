@@ -1,7 +1,8 @@
 <?php 
+session_start();
 require_once 'Connect/connection.php';
 $q_new = "SELECT * FROM products 
-order BY products.created_at DESC limit 4";
+order BY products.created_at DESC limit 8";
 $pro_new=array();
 $rs_new = $conn->query($q_new);
 while($row=$rs_new->fetch_assoc()){
@@ -9,7 +10,7 @@ while($row=$rs_new->fetch_assoc()){
 }
 $q_hot = "SELECT * FROM products 
 where products.pro_hot =1
-LIMIT 8";
+LIMIT 4";
 $pro_hot=array();
 $rs_hot= $conn->query($q_hot);
 while ($row=$rs_hot->fetch_assoc()) {
@@ -17,7 +18,7 @@ while ($row=$rs_hot->fetch_assoc()) {
 }
 $q_over = "SELECT * FROM products 
 where products.pro_number <=2
-LIMIT 4";
+LIMIT 7";
 $pro_over = array();
 $rs_over = $conn->query($q_over);
 while($row=$rs_over->fetch_assoc()){
@@ -48,8 +49,8 @@ while($row=$rs_sale->fetch_assoc()){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 
-<body  >
-    <!-- <div class="load">
+<body>
+  <!--   <div class="load">
         <img src="loader.gif">
     </div> -->
   

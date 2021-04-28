@@ -14,6 +14,12 @@ while($row =$rs->fetch_assoc()){
                     <div class="logo">
                         <a href="index.php"><img src="images/logo.png" width="150px"></a>
                     </div>
+                    <div class="search">
+                            <form>
+                                <input type="text" name="search" placeholder="Tìm kiếm ...">
+                                <span><i class="fas fa-search"></i></span>
+                            </form>
+                    </div>
                     <nav>
                         <ul id="MenuItems">
                             <li><a href="index.php">TRANG CHỦ</a></li>

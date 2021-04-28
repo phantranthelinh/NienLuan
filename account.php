@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once 'Connect/connection.php';
 $query = "SELECT * from categories";
 $rs = $conn->query($query);

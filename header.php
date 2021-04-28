@@ -21,6 +21,12 @@ while($row= $rs_slide->fetch_assoc()){
                     <div class="logo">
                         <a href="index.php"><img src="images/logo.png" width="150px"></a>
                     </div>
+                    <div class="search">
+                            <form>
+                                <input type="text" name="search" placeholder="Tìm kiếm ...">
+                                <span><i class="fas fa-search"></i></span>
+                            </form>
+                    </div>
                     <nav>
                         <ul id="MenuItems">
                             <li><a href="index.php">TRANG CHỦ</a></li>
@@ -84,23 +90,6 @@ while($row= $rs_slide->fetch_assoc()){
                 </div>
             </div>
         </div>
-            <div>
-                <div class="row">
-                    <div class="trend">
-                            <h4 class="sale">Xu hướng tìm kiếm:</h4>
-                            <a href="#">coverse</a>
-                            <a href="#">vans old school</a>
-                            <a href="#">coverse trắng cổ thấp</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="search">
-                        <form>
-                            <input type="text" name="search" placeholder="Tìm kiếm ...">
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 <script>
