@@ -44,12 +44,12 @@ while ($row=$rs_im->fetch_assoc()) {
     <br><br>
 
     <!-- ---------- single Products detail ----------- -->
-    <div>
-        <?php if(isset($_SESSION['msg'])): ?>
-            <p class="msg"><?=$_SESSION['msg']?></p>
-        <?php endif; unset($_SESSION['msg']) ?>
-    </div>
     <div class="small-container single-product">
+        <div class="row">
+        <?php if(isset($_COOKIE['msg'])){ ?>
+            <p style="color:green; transition: 0.6s ease;"><?=$_COOKIE['msg']?></p>
+        <?php } ?>
+        </div>
         <div class="row">
             <div class="col-2">
                 <figure class="zoom" style="background:url('<?=$pro['pro_view']?>')" onmousemove="zoom(event)" ontouchmove="zoom(event)">
@@ -69,7 +69,7 @@ while ($row=$rs_im->fetch_assoc()) {
             <div class="col-3">
                 <p><a href="index.php">Home</a><?=$pro['pro_keyword']?></p>
                 <h1><?=$pro['pro_name']?></h1>
-                <h4 style="color:red;"><?=$pro['pro_price']?></h4>
+                <h4 style="color:red;"><?=number_format($pro['pro_price'])." VND";?></h4>
                 <select>
                     <option>Select Size</option>
                     <?php foreach ($sizes as $size ) { ?>

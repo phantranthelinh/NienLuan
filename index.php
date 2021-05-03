@@ -1,37 +1,79 @@
 <?php 
-session_start();
 require_once 'Connect/connection.php';
-$q_new = "SELECT * FROM products 
-order BY products.created_at DESC limit 8";
-$pro_new=array();
-$rs_new = $conn->query($q_new);
-while($row=$rs_new->fetch_assoc()){
-    $pro_new[]=$row;
+if(isset($_GET['search']) && !empty($_GET['search'])){
+    $key=$_GET['search'];
+    $query = "SELECT * FROM products where products.pro_name like '%$key%' ";
+    $rs = $conn->query($query);
+    $products=array();
+    while($row=$rs->fetch_assoc()){
+        $products[]=$row;
+    }
+    header("Location: products.php");
+
+}else{
+    $q_new = "SELECT * FROM products 
+    order BY products.created_at DESC limit 8";
+    $pro_new=array();
+    $rs_new = $conn->query($q_new);
+    while($row=$rs_new->fetch_assoc()){
+        $pro_new[]=$row;
+    }
+    $q_hot = "SELECT * FROM products 
+    where products.pro_hot =1
+    LIMIT 4";
+    $pro_hot=array();
+    $rs_hot= $conn->query($q_hot);
+    while ($row=$rs_hot->fetch_assoc()) {
+        $pro_hot[]=$row;
+    }
+    $q_over = "SELECT * FROM products 
+    where products.pro_number <=2
+    LIMIT 7";
+    $pro_over = array();
+    $rs_over = $conn->query($q_over);
+    while($row=$rs_over->fetch_assoc()){
+        $pro_over[]=$row;
+    }
+    $q_sale = "SELECT * FROM products 
+    where products.pro_sale != 0
+    LIMIT 4";
+    $pro_sale = array();
+    $rs_sale = $conn->query($q_sale);
+    while($row=$rs_sale->fetch_assoc()){
+        $pro_sale[]=$row;
+    }
 }
-$q_hot = "SELECT * FROM products 
-where products.pro_hot =1
-LIMIT 4";
-$pro_hot=array();
-$rs_hot= $conn->query($q_hot);
-while ($row=$rs_hot->fetch_assoc()) {
-    $pro_hot[]=$row;
-}
-$q_over = "SELECT * FROM products 
-where products.pro_number <=2
-LIMIT 7";
-$pro_over = array();
-$rs_over = $conn->query($q_over);
-while($row=$rs_over->fetch_assoc()){
-    $pro_over[]=$row;
-}
-$q_sale = "SELECT * FROM products 
-where products.pro_sale != 0
-LIMIT 4";
-$pro_sale = array();
-$rs_sale = $conn->query($q_sale);
-while($row=$rs_sale->fetch_assoc()){
-    $pro_sale[]=$row;
-}
+// $q_new = "SELECT * FROM products 
+// order BY products.created_at DESC limit 8";
+// $pro_new=array();
+// $rs_new = $conn->query($q_new);
+// while($row=$rs_new->fetch_assoc()){
+//     $pro_new[]=$row;
+// }
+// $q_hot = "SELECT * FROM products 
+// where products.pro_hot =1
+// LIMIT 4";
+// $pro_hot=array();
+// $rs_hot= $conn->query($q_hot);
+// while ($row=$rs_hot->fetch_assoc()) {
+//     $pro_hot[]=$row;
+// }
+// $q_over = "SELECT * FROM products 
+// where products.pro_number <=2
+// LIMIT 7";
+// $pro_over = array();
+// $rs_over = $conn->query($q_over);
+// while($row=$rs_over->fetch_assoc()){
+//     $pro_over[]=$row;
+// }
+// $q_sale = "SELECT * FROM products 
+// where products.pro_sale != 0
+// LIMIT 4";
+// $pro_sale = array();
+// $rs_sale = $conn->query($q_sale);
+// while($row=$rs_sale->fetch_assoc()){
+//     $pro_sale[]=$row;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -50,11 +92,9 @@ while($row=$rs_sale->fetch_assoc()){
 </head>
 
 <body>
-  <!--   <div class="load">
-        <img src="loader.gif">
-    </div> -->
+
   
-    <?php include 'header.php'; ?>
+    <?php require_once 'header.php'; ?>
     <!-- ------------- featured categorries ---------------- -->
     <div class="categories">
         <div class="small-container">
@@ -89,7 +129,7 @@ while($row=$rs_sale->fetch_assoc()){
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-o"></i>
                 </div>
-                <p style="color: red; text-align: right;"><?=$sale['pro_price']?></p>
+                <p style="color: red; text-align: right;"><?=number_format($sale['pro_price'])." VND";?></p>
             </div>
             <?php } ?>
         </div>
@@ -107,7 +147,7 @@ while($row=$rs_sale->fetch_assoc()){
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p style="text-align: right; color: red;"><?=$new['pro_price']?></p>
+                    <p style="text-align: right; color: red;"><?=number_format($new['pro_price'])." VND";?></p>
                 </div>
             <?php } ?>
         </div>
@@ -125,7 +165,7 @@ while($row=$rs_sale->fetch_assoc()){
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-o"></i>
                 </div>
-                <p style="color: red; text-align: right;"><?=$hot['pro_price']?></p>
+                <p style="color: red; text-align: right;"><?=number_format($hot['pro_price'])." VND";?></p>
             </div>
             <?php } ?>
         </div>
@@ -143,7 +183,7 @@ while($row=$rs_sale->fetch_assoc()){
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                    <p style="color: red; text-align: right;"><?=$over['pro_price']?></p>
+                    <p style="color: red; text-align: right;"><?=number_format($over['pro_price'])." VND";?></p>
                 </div>
             <?php } ?>
         </div>
@@ -152,6 +192,7 @@ while($row=$rs_sale->fetch_assoc()){
     <?php include 'brand.php'; ?>
     <!-- ------------footer----------- -->
     <?php include 'footer.php'; ?>
+  
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/js.js" ></script>
 </body>

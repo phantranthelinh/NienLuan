@@ -16,18 +16,21 @@
 			}else{
 				$_SESSION['cart'][$id]['sl']=1;
 			}
+			$_SESSION['cart'][$id]['id']=$rs['id'];
 			$_SESSION['cart'][$id]['name']=$rs['pro_name'];
 			$_SESSION['cart'][$id]['view']=$rs['pro_view'];
 			$_SESSION['cart'][$id]['price']=$rs['pro_price'];
 			header("Location: product_detail.php?id=$id");
-			$_SESSION['msg']= "Đã thêm vào giỏ hàng thành công !";exit();
+			setcookie('msg',"Đã thêm vào giỏ hàng thành công !",time()+2);exit();
+
 		}else{
+			$_SESSION['cart'][$id]['id']=$rs['id'];
 			$_SESSION['cart'][$id]['name']=$rs['pro_name'];
 			$_SESSION['cart'][$id]['view']=$rs['pro_view'];
 			$_SESSION['cart'][$id]['price']=$rs['pro_price'];
 			$_SESSION['cart'][$id]['sl']=1;
 			header("Location: product_detail.php?id=$id");
-			$_SESSION['msg']= "Đã thêm vào giỏ hàng thành công !";exit();
+			setcookie('msg',"Đã thêm vào giỏ hàng thành công !",time()+2);exit();
 			}
 	}else{
 		$_SESSION['msg'] = "Không tồn tại sản phẩm !";

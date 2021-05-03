@@ -58,7 +58,7 @@ $cate = $conn->query($query_cate)->fetch_assoc();
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p style="color: red;text-align: right;"><?=$pro['pro_price']?></p>
+                    <p style="color: red;text-align: right;"><?=number_format($pro['pro_price'])." VND";?></p>
                 </div>
             <?php } ?>
         </div>

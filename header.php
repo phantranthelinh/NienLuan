@@ -12,6 +12,7 @@ $slides = array();
 while($row= $rs_slide->fetch_assoc()){
     $slides[]=$row;
 }
+
 ?>
 
 <div class="header">
@@ -22,7 +23,7 @@ while($row= $rs_slide->fetch_assoc()){
                         <a href="index.php"><img src="images/logo.png" width="150px"></a>
                     </div>
                     <div class="search">
-                            <form>
+                            <form method="get" action="">
                                 <input type="text" name="search" placeholder="Tìm kiếm ...">
                                 <span><i class="fas fa-search"></i></span>
                             </form>

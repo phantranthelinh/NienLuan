@@ -1,5 +1,4 @@
 <?php 
-session_start();
 require_once 'connect/connection.php';
 $query = "SELECT * FROM suppliers 
 LEFT JOIN categories

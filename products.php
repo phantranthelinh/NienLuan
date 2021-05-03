@@ -1,11 +1,28 @@
 <?php 
 session_start();
 require_once 'Connect/connection.php';
-$query = "SELECT * From products ";
-$rs = $conn->query($query);
-$products=array();
-while($row=$rs->fetch_assoc()){
-    $products[]=$row;
+$orderBy="";
+$orderSort = isset($_GET['orderBy'])? $_GET['orderBy'] :"";
+$field = isset($_GET['field'])? $_GET['field'] :"";
+if(!empty($orderSort) && 
+    !empty($field)){
+    $orderBy =" order by `products`.`".$field."` ".$orderSort;
+}
+if(isset($_GET['search']) && !empty($_GET['search'])){
+    $key=$_GET['search'];
+    $query = "SELECT * FROM products where products.pro_name like '%$key%' ".$orderBy." ";
+    $rs = $conn->query($query);
+    $products=array();
+    while($row=$rs->fetch_assoc()){
+        $products[]=$row;
+    }
+}else{
+    $query = "SELECT * From products ".$orderBy."";
+    $rs = $conn->query($query);
+    $products=array();
+    while($row=$rs->fetch_assoc()){
+        $products[]=$row;
+    }
 }
 
 ?>
@@ -31,13 +48,11 @@ while($row=$rs->fetch_assoc()){
 
         <div class="row row-2">
             <h2>All Products</h2>
-            <select>
-                <option>Default Shop</option>
-                <option>Short by price</option>
-                <option>Short by popularity</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Short by Sale</option>
+            <select onchange="this.options[this.selectedIndex].value && (window.location= this.options[this.selectedIndex].value)">
+                <option>Sắp xếp</option>
+                <option value="?field=pro_price&orderBy=desc">Sắp xếp giá từ Cao đến thấp</option>
+                <option value="?field=pro_price&orderBy=asc">Sắp xếp giá từ Thấp đến cao</option>
+                <option value="?field=pro_name&orderBy=asc">Sắp xếp theo tên</option>
             </select>
         </div>
 
@@ -53,7 +68,7 @@ while($row=$rs->fetch_assoc()){
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-o"></i>
                 </div> -->
-                <p style="text-align: right; color:red;"><?=$pro['pro_price']?></p>
+                <p style="text-align: right; color:red;"><?=number_format($pro['pro_price'])." VND";?></p>
             </div>
             <?php } ?>
         </div>
